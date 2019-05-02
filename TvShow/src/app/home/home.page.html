@@ -1,14 +1,24 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>
-      Ionic Blank
+    <ion-title slot="start">
+      TvShowApp
     </ion-title>
+    <ion-searchbar [(ngModel)]="search" (keyup)="lookup()" placeholder="Search TvShow" slot="end"></ion-searchbar>
+
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <div class="ion-padding">
-    The world is your oyster.
-    <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs/">docs</a> will be your guide.</p>
+    <ion-card *ngFor="let show of ShowsLookedUp">
+      <ion-card-header>
+        <ion-card-subtitle>{{show.name}}</ion-card-subtitle>
+        <ion-card-title>{{show.name}}</ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content>
+
+      </ion-card-content>
+    </ion-card>
   </div>
 </ion-content>
