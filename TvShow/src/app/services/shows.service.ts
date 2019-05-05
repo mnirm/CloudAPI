@@ -17,6 +17,10 @@ export class ShowsService {
   getSpecificShows(category: string) {
     return this.http.get<IShowInfo[]>(this.apiUrl + "/search/shows?q=" + category);
   }
+
+  getShowMainInfo(id: number) {
+    return this.http.get<IShowInfo>(this.apiUrl + "/shows/" + id);
+  }
 }
 
 export interface Schedule {

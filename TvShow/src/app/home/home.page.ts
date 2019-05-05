@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { ShowsService, IShowInfo } from '../services/shows.service';
+import { PopoverController } from '@ionic/angular';
+import { PopoverShowInfoComponent } from '../popover-show-info/popover-show-info.component';
 
 @Component({
   selector: 'app-home',
@@ -7,11 +9,13 @@ import { ShowsService, IShowInfo } from '../services/shows.service';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
+
   Shows: IShowInfo[];
   search: string;
   searched: boolean = false;
   pageNumber: number = 0;
-  constructor(private showSvc: ShowsService) {
+
+  constructor(private showSvc: ShowsService, public popoverCtrl: PopoverController) {
     this.showShows();
   }
 
@@ -21,7 +25,6 @@ export class HomePage {
       this.searched = true;
       this.showSvc.getSpecificShows(this.search).subscribe(success => {
         this.Shows = success;
-        console.log(this.Shows);
       });
     }
     if (!this.search) {
@@ -33,7 +36,6 @@ export class HomePage {
   showShows() {
     this.showSvc.getShows(this.pageNumber).subscribe(success => {
       this.Shows = success;
-      console.log(this.Shows);
     });
   }
 
@@ -41,7 +43,6 @@ export class HomePage {
     this.pageNumber++;
     this.showSvc.getShows(this.pageNumber).subscribe(success => {
       this.Shows = success;
-      console.log(success);
     });
   }
 
@@ -53,7 +54,15 @@ export class HomePage {
     });
   }
 
-  ShowMore(show: IShowInfo) {
-    console.log(show);
+  async presentPopover(ev: any, id) {
+    const popover = await this.popoverCtrl.create({
+      component: PopoverShowInfoComponent,
+      componentProps: {
+        showId: id
+      },
+      event: ev,
+      translucent: true
+    });
+    return await popover.present();
   }
 }

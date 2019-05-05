@@ -23,8 +23,11 @@
             <ion-card-content>
               <img *ngIf="!searched" src="{{show.image.original}}" alt="">
               <img *ngIf="searched" src="{{show.show.image.original}}" alt="">
-              <ion-chip color="primary">
-                <ion-label (click)="ShowMore(show)">More</ion-label>
+              <ion-chip *ngIf="!searched" color="primary" (click)="presentPopover($event,show.id)">
+                <ion-label>More</ion-label>
+              </ion-chip>
+              <ion-chip *ngIf="searched" color="primary" (click)="presentPopover($event,show.show.id)">
+                <ion-label>More</ion-label>
               </ion-chip>
             </ion-card-content>
           </ion-card>

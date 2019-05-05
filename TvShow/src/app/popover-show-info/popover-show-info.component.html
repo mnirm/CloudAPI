@@ -1,3 +1,11 @@
-<p>
-  popover-show-info works!
-</p>
+<div class="ion-padding">
+  <ion-text color="primary">
+    <h3>{{show.name}}</h3>
+  </ion-text>
+  <ion-text color="medium" *ngFor="let genre of show.genres">
+    <p>{{genre}}</p>
+  </ion-text>
+  <ion-text color="danger" *ngIf="show.status=='Ended'">Ended</ion-text>
+  <ion-text color="success" *ngIf="show.status=='Running'">Running</ion-text>
+  <div [innerHtml]="show.summary"></div>
+</div>

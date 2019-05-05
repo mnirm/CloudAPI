@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { NavParams } from '@ionic/angular';
+import { IShowInfo, ShowsService } from '../services/shows.service';
 
 @Component({
   selector: 'app-popover-show-info',
@@ -7,8 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PopoverShowInfoComponent implements OnInit {
 
-  constructor() { }
+  showId = null;
+  show: IShowInfo;
 
-  ngOnInit() {}
+  constructor(private navParams: NavParams, private showSvc: ShowsService) { }
+
+  ngOnInit() {
+    this.showId = Number(this.navParams.get('showId'));
+    console.log(this.showId);
+    this.showSvc.getShowMainInfo(this.showId).subscribe(success => {
+      this.show = success;
+    });
+  }
 
 }
