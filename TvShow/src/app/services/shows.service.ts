@@ -10,17 +10,12 @@ export class ShowsService {
 
   }
 
-  getShows(page?: number) {
-    if (page) {
-      return this.http.get<IShowInfo>(this.apiUrl + "/shows?pages=" + page.toString());
-    }
-    else {
-      return this.http.get<IShowInfo>(this.apiUrl + "/shows?pages=" + "1");
-    }
+  getShows(page: number) {
+    return this.http.get<IShowInfo[]>(this.apiUrl + "/shows?page=" + page.toString());
   }
 
   getSpecificShows(category: string) {
-    return this.http.get<IShowInfo>(this.apiUrl + "/search/shows?q=" + category);
+    return this.http.get<IShowInfo[]>(this.apiUrl + "/search/shows?q=" + category);
   }
 }
 

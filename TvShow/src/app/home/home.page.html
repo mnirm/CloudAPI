@@ -10,15 +10,30 @@
 
 <ion-content>
   <div class="ion-padding">
-    <ion-card *ngFor="let show of ShowsLookedUp">
-      <ion-card-header>
-        <ion-card-subtitle>{{show.name}}</ion-card-subtitle>
-        <ion-card-title>{{show.name}}</ion-card-title>
-      </ion-card-header>
+    <ion-grid>
+      <ion-row>
+        <ion-col size="2" *ngFor="let show of Shows">
+          <ion-card>
+            <ion-card-header>
+              <ion-card-subtitle></ion-card-subtitle>
+              <ion-card-title *ngIf="!searched">{{show.name}}</ion-card-title>
+              <ion-card-title *ngIf="searched">{{show.show.name}}</ion-card-title>
+            </ion-card-header>
 
-      <ion-card-content>
-
-      </ion-card-content>
-    </ion-card>
+            <ion-card-content>
+              <img *ngIf="!searched" src="{{show.image.original}}" alt="">
+              <img *ngIf="searched" src="{{show.show.image.original}}" alt="">
+              <ion-chip color="primary">
+                <ion-label (click)="ShowMore(show)">More</ion-label>
+              </ion-chip>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <div *ngIf="!searched">
+      <ion-button (click)="PreviousPage()">Previous</ion-button>
+      <ion-button (click)="NextPage()">Next</ion-button>
+    </div>
   </div>
 </ion-content>
