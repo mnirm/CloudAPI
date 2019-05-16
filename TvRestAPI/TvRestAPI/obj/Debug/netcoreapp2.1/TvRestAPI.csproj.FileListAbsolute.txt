@@ -1,0 +1,14 @@
+C:\Users\cools\code\CloudAPI\TvRestAPI\TvRestAPI\bin\Debug\netcoreapp2.1\TvRestAPI.deps.json
+C:\Users\cools\code\CloudAPI\TvRestAPI\TvRestAPI\bin\Debug\netcoreapp2.1\TvRestAPI.runtimeconfig.json
+C:\Users\cools\code\CloudAPI\TvRestAPI\TvRestAPI\bin\Debug\netcoreapp2.1\TvRestAPI.runtimeconfig.dev.json
+C:\Users\cools\code\CloudAPI\TvRestAPI\TvRestAPI\bin\Debug\netcoreapp2.1\TvRestAPI.dll
+C:\Users\cools\code\CloudAPI\TvRestAPI\TvRestAPI\obj\Debug\netcoreapp2.1\TvRestAPI.csprojAssemblyReference.cache
+C:\Users\cools\code\CloudAPI\TvRestAPI\TvRestAPI\obj\Debug\netcoreapp2.1\TvRestAPI.csproj.CoreCompileInputs.cache
+C:\Users\cools\code\CloudAPI\TvRestAPI\TvRestAPI\obj\Debug\netcoreapp2.1\TvRestAPI.RazorAssemblyInfo.cache
+C:\Users\cools\code\CloudAPI\TvRestAPI\TvRestAPI\obj\Debug\netcoreapp2.1\TvRestAPI.RazorAssemblyInfo.cs
+C:\Users\cools\code\CloudAPI\TvRestAPI\TvRestAPI\obj\Debug\netcoreapp2.1\TvRestAPI.AssemblyInfoInputs.cache
+C:\Users\cools\code\CloudAPI\TvRestAPI\TvRestAPI\obj\Debug\netcoreapp2.1\TvRestAPI.AssemblyInfo.cs
+C:\Users\cools\code\CloudAPI\TvRestAPI\TvRestAPI\obj\Debug\netcoreapp2.1\TvRestAPI.RazorTargetAssemblyInfo.cache
+C:\Users\cools\code\CloudAPI\TvRestAPI\TvRestAPI\bin\Debug\netcoreapp2.1\TvRestAPI.pdb
+C:\Users\cools\code\CloudAPI\TvRestAPI\TvRestAPI\obj\Debug\netcoreapp2.1\TvRestAPI.dll
+C:\Users\cools\code\CloudAPI\TvRestAPI\TvRestAPI\obj\Debug\netcoreapp2.1\TvRestAPI.pdb
