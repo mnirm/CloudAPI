@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { ShowsService, IShowInfo } from '../services/shows.service';
-import { PopoverController } from '@ionic/angular';
+import { PopoverController, ModalController } from '@ionic/angular';
 import { PopoverShowInfoComponent } from '../popover-show-info/popover-show-info.component';
+import { AuthService } from '../services/auth/auth.service';
+import { CustomApiComponent } from '../custom-api/custom-api.component';
 
 @Component({
   selector: 'app-home',
@@ -15,7 +17,12 @@ export class HomePage {
   searched: boolean = false;
   pageNumber: number = 0;
 
-  constructor(private showSvc: ShowsService, public popoverCtrl: PopoverController) {
+  constructor(
+    private showSvc: ShowsService,
+    public popoverCtrl: PopoverController,
+    public auth: AuthService,
+    public modalCtrl: ModalController
+  ) {
     this.showShows();
   }
 
@@ -59,6 +66,17 @@ export class HomePage {
       component: PopoverShowInfoComponent,
       componentProps: {
         showId: id
+      },
+      event: ev,
+      translucent: true
+    });
+    return await popover.present();
+  }
+
+  async presentCustomApi(ev: any) {
+    const popover = await this.popoverCtrl.create({
+      component: CustomApiComponent,
+      componentProps: {
       },
       event: ev,
       translucent: true

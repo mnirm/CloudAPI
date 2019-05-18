@@ -12,11 +12,12 @@ export class PopoverShowInfoComponent implements OnInit {
   showId = null;
   show: IShowInfo;
 
-  constructor(private navParams: NavParams, private showSvc: ShowsService) { }
+  constructor(private navParams: NavParams, private showSvc: ShowsService) {
+    console.log(this.showId);
+  }
 
   ngOnInit() {
     this.showId = Number(this.navParams.get('showId'));
-    console.log(this.showId);
     this.showSvc.getShowMainInfo(this.showId).subscribe(success => {
       this.show = success;
     });

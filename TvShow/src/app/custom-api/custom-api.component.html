@@ -1,0 +1,8 @@
+<p *ngIf="!auth.isAuthenticated()">This api is only accessible if you are logged in.</p>
+<ion-list *ngIf="auth.isAuthenticated()">
+  <ion-item>
+    <ion-label>Pokémon Yellow</ion-label>
+  </ion-item>
+</ion-list>
+
+<ion-button (click)="GetAllShows()">click</ion-button>

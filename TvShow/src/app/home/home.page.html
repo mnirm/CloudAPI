@@ -1,14 +1,25 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title slot="start">
-      TvShowApp
-    </ion-title>
-    <ion-searchbar [(ngModel)]="search" (keyup)="lookup()" placeholder="Search TvShow" slot="end"></ion-searchbar>
+    <div slot="start">
+      <ion-title>
+        TvShowApp
+      </ion-title>
+      <ion-button class="btn btn-primary btn-margin" *ngIf="!auth.isAuthenticated()" (click)="auth.login()">
+        Log In
+      </ion-button>
+      <ion-button class="btn btn-primary btn-margin" *ngIf="auth.isAuthenticated()" (click)="auth.logout()">
+        Log Out
+      </ion-button>
+    </div>
 
+    <ion-searchbar [(ngModel)]="search" (keyup)="lookup()" placeholder="Search TvShow" slot="end"></ion-searchbar>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <ion-chip color="primary" (click)="presentCustomApi()">
+    <ion-label color="dark">Custom Api</ion-label>
+  </ion-chip>
   <div class="ion-padding">
     <ion-grid>
       <ion-row>
