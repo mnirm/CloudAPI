@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Cors.Infrastructure;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
@@ -29,7 +30,7 @@ namespace TvRestAPI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
-            services.AddDbContext<ShowDbContext>(option => option.UseSqlServer(@"Data Source =(localdb)\MSSQLLocalDB;Initial Catalog=ShowsDb;"));
+            services.AddDbContext<ShowDbContext>(option => option.UseSqlServer(Configuration.GetConnectionString("ShowDbContext")));
             services.AddMvc().AddXmlSerializerFormatters();
 
             services.AddAuthentication(options =>
@@ -42,7 +43,9 @@ namespace TvRestAPI
                 options.Audience = "https://localhost:44378/";
             });
 
-
+            services.AddCors(options => options.AddPolicy("AllowAll", p => p.AllowAnyOrigin()
+                .AllowAnyMethod()
+                .AllowAnyHeader()));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -60,6 +63,9 @@ namespace TvRestAPI
             app.UseHttpsRedirection();
             showDbContext.Database.EnsureCreated();
             app.UseAuthentication();
+
+            app.UseCors("AllowAll");
+
             app.UseMvc();
         }
     }

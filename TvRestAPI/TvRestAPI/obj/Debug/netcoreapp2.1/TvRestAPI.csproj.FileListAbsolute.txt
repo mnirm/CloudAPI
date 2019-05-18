@@ -12,3 +12,4 @@ C:\Users\cools\code\CloudAPI\TvRestAPI\TvRestAPI\obj\Debug\netcoreapp2.1\TvRestA
 C:\Users\cools\code\CloudAPI\TvRestAPI\TvRestAPI\bin\Debug\netcoreapp2.1\TvRestAPI.pdb
 C:\Users\cools\code\CloudAPI\TvRestAPI\TvRestAPI\obj\Debug\netcoreapp2.1\TvRestAPI.dll
 C:\Users\cools\code\CloudAPI\TvRestAPI\TvRestAPI\obj\Debug\netcoreapp2.1\TvRestAPI.pdb
+C:\Users\cools\code\CloudAPI\TvRestAPI\TvRestAPI\obj\Debug\netcoreapp2.1\UserSecretsAssemblyInfo.cs
