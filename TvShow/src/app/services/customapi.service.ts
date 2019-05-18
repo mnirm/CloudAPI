@@ -21,7 +21,7 @@ export class CustomapiService {
   }
 
   public GetShows() {
-    return this.http.get<IShowCustomApi[]>("https://tvshowjarnoapi.azurewebsites.net/api/show", this.httpOptions);
+    return this.http.get<IShowCustomApi[]>(this.url + "/show", this.httpOptions);
   }
 }
 
