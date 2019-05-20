@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { AuthService } from './auth/auth.service';
-import { headersToString } from 'selenium-webdriver/http';
+import { Observable } from 'rxjs/internal/Observable';
 
 @Injectable({
   providedIn: 'root'
@@ -14,8 +14,8 @@ export class CustomapiService {
   constructor(private http: HttpClient, private auth: AuthService) {
     this.httpOptions = {
       headers: new HttpHeaders({
-        'Content-Type': 'application/json',
-        'Authorization': 'Bearer ' + this.auth.accessToken
+        'Authorization': 'Bearer ' + this.auth.accessToken,
+        'Content-Type': 'application/json'
       })
     }
   }
@@ -23,18 +23,37 @@ export class CustomapiService {
   public GetShows() {
     return this.http.get<IShowCustomApi[]>(this.url + "/show", this.httpOptions);
   }
+
+  public DeleteShow(id: number) {
+    this.http.delete(this.url + "/show/" + id, this.httpOptions)
+      .subscribe(success => {
+        console.log(success);
+      }, error => {
+        console.log(error)
+      })
+  }
+
+  public NewShow(show: IShowCustomApi) {
+    this.http.post(this.url + "/show", show, this.httpOptions)
+      .subscribe(success => {
+        console.log(success)
+      },
+        error => {
+          console.log(error)
+        });
+  }
 }
 
 export interface Actor {
-  id: number;
+  id?: number;
   name: string;
   age: number;
 }
 
 export interface IShowCustomApi {
-  id: number;
+  id?: number;
   name: string;
   type: string;
   rating: number;
-  actors: Actor[];
+  actors?: Actor[];
 }
