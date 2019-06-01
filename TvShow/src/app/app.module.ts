@@ -15,6 +15,8 @@ import { PopoverShowInfoComponent } from './popover-show-info/popover-show-info.
 import { AuthService } from './services/auth/auth.service';
 import { CustomApiComponent } from './custom-api/custom-api.component';
 import { CustomapiService } from './services/customapi.service';
+import { FormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [AppComponent, PopoverShowInfoComponent, CustomApiComponent],
@@ -23,7 +25,8 @@ import { CustomapiService } from './services/customapi.service';
     [BrowserModule,
       IonicModule.forRoot(),
       AppRoutingModule,
-      HttpClientModule
+      HttpClientModule,
+      FormsModule
     ],
   providers: [
     StatusBar,

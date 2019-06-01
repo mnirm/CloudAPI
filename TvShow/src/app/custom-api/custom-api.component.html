@@ -1,14 +1,15 @@
 <p *ngIf="!auth.isAuthenticated()">This api is only accessible if you are logged in.</p>
 <h1 *ngIf="auth.isAuthenticated()">Jarno's Rest API</h1>
-<ion-list *ngIf="auth.isAuthenticated()">
-  <div *ngFor="let show of shows">
-    <ion-item-sliding>
+<div *ngIf="auth.isAuthenticated()">
+  <ion-list>
+    <div *ngFor="let show of shows">
       <ion-item>
         <ion-label>{{show.name}}</ion-label>
       </ion-item>
-      <ion-item-options side="end">
-        <ion-item-option (click)="delete(show.id)">Delete</ion-item-option>
-      </ion-item-options>
-    </ion-item-sliding>
-  </div>
-</ion-list>
+    </div>
+  </ion-list>
+  <ion-input [(ngModel)]="inputName" placeholder="Show Name"></ion-input>
+  <ion-input [(ngModel)]="inputType" placeholder="Type"></ion-input>
+  <ion-input [(ngModel)]="inputRating" placeholder="Rating" type="number"></ion-input>
+  <ion-button (click)="newShow()">Add show</ion-button>
+</div>
