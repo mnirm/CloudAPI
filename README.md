@@ -6,7 +6,7 @@ Called an open API from the internet. Dispalyed Everything in an Ionic web appli
 - Deployment to Azure
 - EF Core
 - .NET core 2.2
-- Calling apis
+- Calling APIs
 - JWT Authentication
 - Auth0
 - Make post/put/delete calls with a Bearer token through Angular Https.
