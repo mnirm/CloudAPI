@@ -1,4 +1,18 @@
 # CloudAPI
+CloudAPI project for college 2018-2019.
+Called an open API from the internet. Dispalyed Everything in an Ionic web application.
+
+## What I learned
+- Deployment to Azure
+- EF Core
+- .NET core 2.2
+- Calling apis
+- JWT Authentication
+- Auth0
+- Make post/put/delete calls with a Bearer token through Angular Https.
+
+## Documentation APIs
+
 ### TvShow Website
 RESTAPI: https://www.tvmaze.com/api
 
